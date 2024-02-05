@@ -7,59 +7,43 @@ use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+
     public function index()
     {
-        //
+        $kelas = Kelas::all();
+
+        return view('kelas', [
+            'title' => 'Daftar Kelas',
+            'kelas' => $kelas,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    // app/Http/Controllers/StudentsController.php
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Kelas $kelas)
-    {
-        //
-    }
+// app/Http/Controllers/KelasController.php
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Kelas $kelas)
-    {
-        //
-    }
+public function create()
+{
+    $kelas = Kelas::all();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Kelas $kelas)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Kelas $kelas)
-    {
-        //
-    }
+    return view('kelas', [
+        'title' => 'Tambah Data Siswa',
+        'kelas' => $kelas,
+    ]);
 }
+
+public function store(Request $request)
+{
+    $validatedData = $request->validate([
+        'nama' => 'required',
+    ]);
+
+    Kelas::create($validatedData);
+
+    return redirect()->route('kelas.create')->with('success', 'Kelas berhasil ditambahkan');
+}
+
+
+}   

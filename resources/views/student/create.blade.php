@@ -22,13 +22,15 @@
          </div>
 
          <div class="mb-3">
-            <label for="kelas" class="form-label">Kelas</label>
-            <select class="form-select" name="kelas_id" id="">
-                @foreach ($kelas as $Kelas)
-                    <option value="{{ $Kelas->id }}">{{ $Kelas->nama }}</option>
+            <label for="kelas_id" class="form-label">Kelas</label>
+            <select class="form-select" name="kelas_id" id="kelas_id" required>
+                @foreach ($kelas as $kelasItem)
+                    <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama }}</option>
                 @endforeach 
             </select>
-          </div>
+        </div>
+        
+        
 
           <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
