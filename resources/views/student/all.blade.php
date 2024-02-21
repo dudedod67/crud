@@ -9,7 +9,7 @@
   </div>
 @endif
 
-    <a href="/student/create/" class="btn btn-outline-success">Add</a>
+    {{-- <a href="/student/create/" class="btn btn-outline-success">Add</a> --}}
   <table class="table">
     <thead>
       <tr>
@@ -17,6 +17,7 @@
         <th scope="col">Nis</th>
         <th scope="col">Nama</th>
         <th scope="col">Kelas</th>
+        <th scope="col">Alamat</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -31,15 +32,16 @@
         <td>{{$student->nis}}</td>
         <td>{{$student->nama}}</td>
         <td>{{$student->kelas->nama}}</td>
+        <td>{{$student->alamat}}</td>
         <td>
           <a href="/student/detail/{{$student->id}}" class="btn btn-primary">Detail</a>
-          <a href="/student/edit/{{$student->id}}" class="btn btn-warning">Edit</a>
+          {{-- <a href="/student/edit/{{$student->id}}" class="btn btn-warning">Edit</a>
           <form action="/students/delete/{{$student->id}}" method="post" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
 
             @method('delete')
             @csrf
             <button class="btn btn-danger">Delete</button>
-          </form>
+          </form> --}}
         </td>
       </tr>
       @endforeach

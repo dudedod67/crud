@@ -11,26 +11,22 @@
       <th scope="col">Tanggal_Lahir</th>
       <th scope="col">Kelas</th>
       <th scope="col">Alamat</th>
-      <th scope="col">Action</th>
 
     </tr>
   </thead>
   <tbody>
-    @php 
-    $no = 1
-    @endphp
+    @php $no = 1 @endphp
 
     <tr>  
       <td>{{$no++}}</td>
       <td>{{$student->nis}}</td>
       <td>{{$student->nama}}</td>
       <td>{{$student->tanggal_lahir}}</td>
-      <td>{{$student->kelas}}</td>
+      <td>{{$student->kelas->nama}}</td>
       <td>{{$student->alamat}}</td>
-      <td>
+      {{-- <td>
         <a href="/students/all" class="btn btn-primary">Kembali</a>
-      </td>
-
+      </td> --}}
     </tr>
   </tbody>
 </table>

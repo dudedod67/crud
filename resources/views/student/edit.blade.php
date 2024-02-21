@@ -36,6 +36,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="/students/all" class="btn btn-secondary">Kembali</a>
+        <a href="/dashboard/student" class="btn btn-secondary">Kembali</a>
     </form>
 @endsection

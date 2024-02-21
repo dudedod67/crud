@@ -45,5 +45,13 @@ public function store(Request $request)
     return redirect()->route('kelas.create')->with('success', 'Kelas berhasil ditambahkan');
 }
 
+public function destroy(Kelas $kelas)
+    {
+      $result = Kelas::destroy($kelas->id);
+      if($result) {
+        return redirect('/dashboard/kelas')->with('success', 'Data siswa berhasil dihapus');
+      }
+    }
+
 
 }   

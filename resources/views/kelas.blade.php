@@ -1,7 +1,7 @@
     @extends('layouts.main')
 
     @section('container')
-        <h3>Create Kelas</h3>
+        <h3>Tambah Kelas</h3>
         @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>
@@ -19,6 +19,6 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
 
-            <a href="{{ route('kelas.index') }}" class="btn btn-secondary">Kembali</a>
+            {{-- <a href="{{ route('kelas.index') }}" class="btn btn-secondary">Kembali</a> --}}
         </form>
     @endsection

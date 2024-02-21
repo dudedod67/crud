@@ -46,7 +46,7 @@ public function store(Request $request)
 
     $result = Student::create($validateData);
     if ($result) {
-        return redirect('/students/all')->with('success', 'Data siswa berhasil ditambahkan');
+        return redirect('/dashboard/student')->with('success', 'Data siswa berhasil ditambahkan');
     }
 }
 
@@ -55,7 +55,7 @@ public function store(Request $request)
     {
       $result = Student::destroy($student->id);
       if($result) {
-        return redirect('/students/all')->with('success', 'Data siswa berhasil dihapus');
+        return redirect('/dashboard/student')->with('success', 'Data siswa berhasil dihapus');
       }
     }
 
@@ -80,7 +80,7 @@ public function store(Request $request)
     $result = Student::where('id', $student->id)->update($validateData);
 
     if ($result) {
-      return redirect('/students/all')->with('success', 'Data siswa berhasil diubah !');
+      return redirect('/dashboard/student')->with('success', 'Data siswa berhasil diubah !');
     }
     }
 }

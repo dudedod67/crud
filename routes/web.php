@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Students;
 use App\Http\Controllers\StudentsController;
@@ -19,9 +22,9 @@ Route::get('/home', function () {
 Route::get('/about', function () {   
     return view('about', [
         "title" => "about",
-        'nama' => 'Davin Kafila Haidar',
+        'nama' => 'Dude Nova Ariyanto',
         'kelas' => '11 PPLG 2',
-        'foto' => 'img/davin.jpg', 
+        'foto' => 'img/duded.jpg', 
     ]);
 });
 
@@ -35,6 +38,19 @@ Route::post('/student/update/{student}', [StudentsController::class, 'update']);
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');
 Route::get('/kelas/create', [KelasController::class, 'create'])->name('kelas.create');
 Route::post('/kelas/store', [KelasController::class, 'store'])->name('kelas.store');
+Route::delete('/kelas/delete/{kelas}', [KelasController::class, 'destroy']);
 
+Route::group(["prefix" => "/auth"], function(){
+    Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+    Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::post('/logout', [LoginController::class, 'logout']);
+    Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+    Route::post('/register', [RegisterController::class, 'store']);
+});
 
+Route::group(["prefix" => "/dashboard"], function(){
+    Route::get('/main', [DashboardController::class, 'index'])->middleware(['auth']);
+    Route::get('/student', [DashboardController::class, 'student'])->middleware(['auth']);
+    Route::get('/kelas', [DashboardController::class, 'kelas'])->middleware(['auth']);
+});
 
