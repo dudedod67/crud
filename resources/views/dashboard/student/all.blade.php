@@ -11,7 +11,7 @@
   </div>
   </div>
 
-  <a href="/student/create/" class="btn btn-outline-success">Add</a>
+  <a href="/dashboard/create/" class="btn btn-outline-success">Add</a>
 
 <table class="table">
   <thead class="">
@@ -19,9 +19,9 @@
       <th scope="col">No</th>
       <th scope="col">Nis</th>
       <th scope="col">Name</th>
-      <th scope="col">Tanggal Lahir</th>
+      {{-- <th scope="col">Tanggal Lahir</th> --}}
       <th scope="col">Kelas</th>
-      <th scope="col">Alamat</th>
+      {{-- <th scope="col">Alamat</th> --}}
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -35,13 +35,14 @@
         <td>{{ $no++ }}</td>
         <td>{{ $students->nis }}</td>
         <td>{{ $students->nama }}</td>
-        <td>{{ $students->tanggal_lahir }}</td>
-        <td>{{ $students->alamat }}</td>
+        {{-- <td>{{ $students->tanggal_lahir }}</td> --}}
         <td>{{ $students->kelas->nama}}</td>
+        {{-- <td>{{ $students->alamat }}</td> --}}
+        
       <td>
         
         <div class="d-flex gap-2">
-          <a href="/student/detail/{{$students->id}}" class="btn btn-primary">Detail</a>
+          <a href="/dashboard/detail/{{$students->id}}" class="btn btn-primary">Detail</a>
           <a href="/student/edit/{{ $students->id }}" class="btn btn-warning"> Edit</a>
         <form action="/students/delete/{{ $students->id }}" method="post" onsubmit="return confirm('Are you sure you want to delete this student?');">
           @csrf
@@ -57,7 +58,7 @@
   </tbody>
 </table>
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-5 mb-5 ">
   {{ $student->links()}}
 </div>
 

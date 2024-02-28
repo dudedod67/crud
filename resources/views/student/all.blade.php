@@ -17,7 +17,7 @@
         <th scope="col">Nis</th>
         <th scope="col">Nama</th>
         <th scope="col">Kelas</th>
-        <th scope="col">Alamat</th>
+        {{-- <th scope="col">Alamat</th> --}}
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -32,7 +32,7 @@
         <td>{{$student->nis}}</td>
         <td>{{$student->nama}}</td>
         <td>{{$student->kelas->nama}}</td>
-        <td>{{$student->alamat}}</td>
+        {{-- <td>{{$student->alamat}}</td> --}}
         <td>
           <a href="/student/detail/{{$student->id}}" class="btn btn-primary">Detail</a>
           {{-- <a href="/student/edit/{{$student->id}}" class="btn btn-warning">Edit</a>

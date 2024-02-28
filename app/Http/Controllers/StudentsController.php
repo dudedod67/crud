@@ -27,7 +27,7 @@ class StudentsController extends Controller
 
     public function create()
 {
-  return view('student.create', [
+  return view('dashboard.student.create', [
     "title" => "create-student",
     "kelas" => Kelas::all()
   ]);                  
@@ -61,7 +61,7 @@ public function store(Request $request)
 
     public function edit(Student $student)
     {
-      return view('student.edit',[
+      return view('dashboard.student.edit',[
         "title" => "edit-data",
         "student" => $student,
         "kelas" => Kelas::all()

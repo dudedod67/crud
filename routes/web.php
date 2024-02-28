@@ -54,3 +54,7 @@ Route::group(["prefix" => "/dashboard"], function(){
     Route::get('/kelas', [DashboardController::class, 'kelas'])->middleware(['auth']);
 });
 
+Route::get('/dashboard/detail/{student}', [DashboardController::class, 'showdashboard'])->name('dashboard.detail')->middleware('auth');
+Route::get('/dashboard/create', [StudentsController::class, 'create'])->name('student.create')->middleware('auth');
+Route::get('/dashboard/edit/{student}', [StudentsController::class, 'edit'])->name('student.edit')->middleware('auth');
+

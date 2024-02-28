@@ -1,24 +1,30 @@
-    @extends('layouts.main')
-
-    @section('container')
-        <h3>Tambah Kelas</h3>
-        @if(session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ session('success') }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      @endif
-
-        <form action="{{ route('kelas.store') }}" method="post">
+@extends('layouts.main')
+@section('container')
+<table class="table">
+    <thead class="">
+      <tr>
+        <th scope="col">Kelas</th>
+        {{-- <th scope="col">Action</th> --}}
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($kelas as $kelass)
+        <tr>
+        <td>{{ $kelass->nama }}</td>
+        {{-- <td>
+          
+          <div class="d-flex gap-2">
+          <form action="/kelas/delete/{{ $kelass->id }}" method="post" onsubmit="return confirm('Are you sure you want to delete this student?');">
             @csrf
-
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama Kelas</label>
-                <input type="text" class="form-control" id="nama" name="nama" required value="{{ old('nama') }}">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-            {{-- <a href="{{ route('kelas.index') }}" class="btn btn-secondary">Kembali</a> --}}
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
-    @endsection
+          </div>
+        </td> --}}
+      </tr>
+        @endforeach
+    </tbody>
+  </table>
+  {{-- <a href="/kelas/create/" class="btn btn-outline-success">Add</a> --}}
+
+@endsection

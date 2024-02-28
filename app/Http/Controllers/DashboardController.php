@@ -23,4 +23,12 @@ class DashboardController extends Controller
             'kelass' => Kelas::all()
         ]);
     }
+
+    public function showdashboard($student)
+    {
+      return view('dashboard.student.detail', [
+        "title" => "detail-student",
+        "student" => Student::find($student)
+      ]);
+    }
 }
